@@ -37,13 +37,13 @@
 	th:href="@{/listar}"> <i class='bx bx-box'></i> <span
 					class="links_name">Productos</span>
 			</a></li>
-			<li><a  href="listaventas.html"
-	th:href="@{listaventas}"> <i class='bx bx-list-ul'></i> <span
+			<li><a
+	th:href="@{/domicilios2}"> <i class='bx bx-list-ul'></i> <span
 					class="links_name">lista de ventas</span>
 			</a></li>
 
 			<li><a href="clientes.html"
-	th:href="@{clientes}"> <i class='bx bx-user'></i> <span
+	th:href="@{/clientes}"> <i class='bx bx-user'></i> <span
 					class="links_name">clientes</span>
 			</a></li>
 
@@ -71,7 +71,46 @@
 
 		<div class="home-content">
 			<div class="overview-boxes">
-				 	<h2>Contenido</h2>
+				 <div class="home-content">
+			<div class="overview-boxes">
+				<div class="col-md-11">
+
+					<div class="container">
+
+
+						<div class="row">
+							<div class="card-body col-7 ">
+								
+								<h1 class="display-4">Bienvenido</h1>
+									<p class="lead"> señor Administrador, que quieres hacer el dia de hoy</p>
+									
+								
+							</div>
+							
+							
+							<div class="car-body col-5">
+								<img  style="width:100%; height: 80%"
+									src="static/img/admin.png" class="img-fluid"
+									th:src="@{/img/admin.png}" />
+							</div>
+							<p></p>
+                         <div class="car-body col-12">
+								<img  style="width:90%; height:70%"
+									src="static/img/admin2.png" class="img-fluid"
+									th:src="@{/img/admin2.png}" />
+							</div>
+
+
+							<p></p>
+							
+						</div>
+					</div>
+	
+				</div>
+
+			</div>
+
+		</div>
 					</div>
 				</div>
 	</section>

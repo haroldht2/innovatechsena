@@ -26,7 +26,7 @@
 
 
 		<ul class="nav-links">
-			<li><a href="dashboard.html" th:href="@{dashboard}"> <i
+			<li><a href="/dashboard.html" th:href="@{/Administrador/dashboard}"> <i
 					class='bx bx-home'></i> <span class="links_name">inicio</span>
 			</a></li>
 			<li><a  href="/form.html"
@@ -38,7 +38,7 @@
 	th:href="@{/listar}">
 					<i class='bx bx-box'></i> <span class="links_name">Productos</span>
 			</a></li>
-			<li><a href="listaventas.html" th:href="@{listaventas}"> <i
+			<li><a th:href="@{/domicilios2}"> <i
 					class='bx bx-list-ul'></i> <span class="links_name">lista de
 						ventas</span>
 			</a></li>
@@ -85,11 +85,11 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr th:each="usuario : ${usuasrios}">
-										<td th:text="${empleado.id}"></td>
-										<td th:text="${empleado.email}"></td>
-										<td th:text="${empleado.nombre}"></td>
-										<td th:text="${empleado.apellido}"></td>
+									<tr th:each="usuario : ${usuarios}">
+										<td th:text="${usuario.id}"></td>
+										<td th:text="${usuario.nombre}"></td>
+										<td th:text="${usuario.apellido}"></td>
+										<td th:text="${usuario.email}"></td>
 
 									
 

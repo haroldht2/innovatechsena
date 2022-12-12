@@ -25,31 +25,33 @@
 		</div>
 		<ul class="nav-links">
 		
-		<li><a href="dashboard.html" th:href="@{dashboard}"  > <i class='bx bx-home' ></i> <span
+		<li><a href="#"  > <i class='bx bx-home' ></i> <span
 					class="links_name">Inicio</span>
 			</a></li>
 			
-			<li><a href="domicilio.html"
-	th:href="@{domicilio}"> <i class='bx bxs-truck'></i> <span
+			<li><a
+	th:href="@{/domicilios3}"> <i class='bx bxs-truck'></i> <span
 					class="links_name">Domicilios</span>
 			</a></li>
-			<li><a href="agregarproducto.html"
-	th:href="@{agregarproducto}"> <i class='bx bxs-cart-alt' ></i> <span
+			
+			<li><a  
+			 th:href="@{/listar7}"class="active"> <i class='bx bxs-cart-alt' ></i> <span
 					class="links_name">Agregar Producto</span>
 			</a></li>
 			
-				<li><a href="#" class="active">
-			 <i class='bx bx-columns' ></i> <span
+			<li><a href="informe.html"
+			th:href="@{informe}"> <i class='bx bx-columns' ></i> <span
 					class="links_name">informe</span>
 			</a></li>
 			<li><a href="asignarrepartidor.html"
-			 th:href="@{asignarrepartidor}"><i class='bx bxs-user-plus'></i> <span
+			 th:href="@{/operadores}"><i class='bx bxs-user-plus'></i> <span
 					class="links_name">Asignar Repartidor</span>
 			</a></li>
 			
-			<li class="log_out"><a th:href="@{/logout}"> <i
-					class='bx bx-log-out'></i> <span class="links_name"
-					data-toggle="modal" data-target="#exampleModal">Salir</span>
+			<li class="log_out"
+				th:onclick="return confirm('¿Seguro de que quieres salir?');"><a
+				th:href="@{/logout}"> <i class='bx bx-log-out'></i> <span
+					class="links_name" data-toggle="modal" data-target="#exampleModal">Salir</span>
 
 
 
@@ -63,16 +65,52 @@
 					th:src="@{/img/logo.png}" />
 			</div>
 
-			<div class="profile-details">
-				
-			</div>
+			
 		</nav>
 
 		<div class="home-content">
 			<div class="overview-boxes">
-				 	<h2>666</h2>
+				<div class="container py-4">
+					<div class="card bg-light">
+						<div class="card-header"
+							th:text="'Detalles del producto '+${empleado.nombre}"></div>
+						<div class="container">
+							<div class="row">
+								<div class="card-body col-8">
+									<ul class="list-group col">
+										<li class="list-group-item active"
+											th:text="'Nombre del producto: '+${empleado.nombre}"></li>
+										<li class="list-group-item"
+											th:text="'Marca del producto: '+${empleado.apellido}"></li>
+										<li class="list-group-item"
+											th:text="'Contacto con el provedor: '+${empleado.email}"></li>
+										<li class="list-group-item"
+											th:text="'Fecha de creación del producto: '+${empleado.fecha}"></li>
+										<li class="list-group-item"
+											th:text="'Cantidad disponible: '+${empleado.telefono}"></li>
+										<li class="list-group-item"
+											th:text="'Estado del producto: '+${empleado.sexo}"></li>
+										<li class="list-group-item"
+											th:text="'Precio por unidad: '+${empleado.salario}"></li>
+
+									</ul>
+
+								</div>
+								<div class="card-body col-4 ">
+									<ul class="col">
+										<img class="jean" src="static/img/jean.png" th:src="@{/img/jean.png}" />
+									</ul>
+								</div>
+
+							</div>
+
+						</div>
 					</div>
+
 				</div>
+			</div>
+
+		</div>
 	</section>
 
 	<script

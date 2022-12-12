@@ -25,11 +25,11 @@
 		</div>
 		<ul class="nav-links">
 		
-		<li><a href="#" class="active" > <i class='bx bx-home' ></i> <span
+<li><a th:href="@{/Operador/dashboard}"  > <i class='bx bx-home' ></i> <span
 					class="links_name">Inicio</span>
 			</a></li>
 			
-			<li><a
+					<li><a
 	th:href="@{/domicilios3}"> <i class='bx bxs-truck'></i> <span
 					class="links_name">Domicilios</span>
 			</a></li>
@@ -39,16 +39,18 @@
 					class="links_name">Agregar Producto</span>
 			</a></li>
 			
-		
-			<li><a href="asignarrepartidor.html"
-			 th:href="@{/operadores}"><i class='bx bxs-user-plus'></i> <span
+			<li><a href="informe.html"
+			th:href="@{informe}"> <i class='bx bx-columns' ></i> <span
+					class="links_name">informe</span>
+			</a></li>
+			<li><a href="#" class="active">
+			<i class='bx bxs-user-plus'></i> <span
 					class="links_name">Asignar Repartidor</span>
 			</a></li>
 			
-			<li class="log_out"
-				th:onclick="return confirm('¿Seguro de que quieres salir?');"><a
-				th:href="@{/logout}"> <i class='bx bx-log-out'></i> <span
-					class="links_name" data-toggle="modal" data-target="#exampleModal">Salir</span>
+			<li class="log_out"><a th:href="@{/logout}"> <i
+					class='bx bx-log-out'></i> <span class="links_name"
+					data-toggle="modal" data-target="#exampleModal">Salir</span>
 
 
 
@@ -63,45 +65,45 @@
 			</div>
 
 			<div class="profile-details">
-				
+			
 			</div>
 		</nav>
 
 		<div class="home-content">
 			<div class="overview-boxes">
-				 <div class="home-content">
-			<div class="overview-boxes">
-				 	<div class="col-md-9">
-				<div class="row">
-					<div class="col">
-						
-						
-						<div class="row">
-							<div class="col">
-
-								<div class="jumbotron">
-									<h1 class="display-4">Bienvenido señor operario</h1>
-									<p class="lead">Dime que quieres hacer en el dia de hoy </p>
-									<hr class="my-4"/>
-									<p></p>
-                         <div class="car-body col-12">
-								<img  style="width:100%; height:100%"
-									src="static/img/feliz.png" class="img-fluid"
-									th:src="@{/img/feliz.png}" />
-							</div>
-								</div>
-
-							</div>
-
-						</div>
-
-					</div>
-					</div>
-				</div>
-
-				 	
-					</div>
-				</div>
+			 <div class="container">
+       <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+              <h1 class="text-center">Ingresa los datos para realizar la compra</h1>
+              <div class="card-body">
+                 <form th:action="@{/domicilios3}" th:object="${domicilio}" method="POST">
+                    <div class="form-group">
+                       <label>Nombre : </label>
+                       <input type="text" name="nombre" th:field="*{nombre}" class="form-control" placeholder="Digite su nombre : " required>
+                    </div>
+                    
+                    <div class="form-group">
+                       <label>Apellido : </label>
+                       <input type="text" name="apellido" th:field="*{apellido}" class="form-control" placeholder="Digite su apellido : " required>
+                    </div>
+                    
+                    <div class="form-group">
+                       <label>Direccion : </label>
+                       <input type="text" name="direccion" th:field="*{direccion}" class="form-control" placeholder="Digite su direccion : " required>
+                    </div>
+                        <div class="form-group">
+                       <label>Numero de telefono : </label>
+                       <input type="number" name="Numero" th:field="*{numero}" class="form-control" placeholder="Digite su numero : " required>
+                    </div>
+                
+                    <div class="box-footer" th:onclick="return confirm('¿Estas seguro de realizar este pedido?');">
+                       <button class="btn btn-success">Guardar</button>
+                    </div>
+                 </form>
+              </div>
+          </div>
+       </div>
+    </div>
 					</div>
 				</div>
 	</section>

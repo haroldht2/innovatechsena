@@ -15,40 +15,40 @@
 <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'
 	rel='stylesheet'>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="static/css/administrador.css"
-	th:href="@{/css/administrador.css}">
+<link rel="stylesheet" type="text/css" href="static/css/operador.css"
+	th:href="@{/css/operador.css}">
 </head>
 <body>
 	<div class="sidebar">
 		<div class="logo-details">
-		<i class='bx bx-briefcase-alt'></i><span class="logo_name">Innovatech</span>
+			<i class='bx bxs-user' ></i> <span class="logo_name">Innovatech</span>
 		</div>
-		
-		
 		<ul class="nav-links">
-		<li><a href="Administrador/dashboard.html"
-				th:href="@{/Administrador/dashboard}" > <i class='bx bx-home' ></i>
-					<span class="links_name">inicio</span>
+		
+		<li><a href="#"  > <i class='bx bx-home' ></i> <span
+					class="links_name">Inicio</span>
 			</a></li>
-			<li><a  href="/form.html"
-	th:href="@{/form}" class="active">  <i class='bx bx-grid-alt'></i>
-					<span class="links_name" >Agregar produto</span>
+			
+			<li><a
+	th:href="@{/domicilios3}"> <i class='bx bxs-truck'></i> <span
+					class="links_name">Domicilios</span>
 			</a></li>
-			<li><a  href="/listar.html"
-	th:href="@{/listar}"> <i class='bx bx-box'></i> <span
-					class="links_name">Productos</span>
-			</a></li>
+			
 			<li><a  
-	th:href="@{/domicilios2}"> <i class='bx bx-list-ul'></i> <span
-					class="links_name">lista de ventas</span>
+			 th:href="@{/listar7}"class="active"> <i class='bx bxs-cart-alt' ></i> <span
+					class="links_name">Agregar Producto</span>
 			</a></li>
-
-			<li><a href="clientes.html"
-	th:href="@{/clientes}"> <i class='bx bx-user'></i> <span
-					class="links_name">clientes</span>
+			
+			<li><a href="informe.html"
+			th:href="@{informe}"> <i class='bx bx-columns' ></i> <span
+					class="links_name">informe</span>
 			</a></li>
-
-	<li class="log_out"
+			<li><a href="asignarrepartidor.html"
+			 th:href="@{/operadores}"><i class='bx bxs-user-plus'></i> <span
+					class="links_name">Asignar Repartidor</span>
+			</a></li>
+			
+			<li class="log_out"
 				th:onclick="return confirm('¿Seguro de que quieres salir?');"><a
 				th:href="@{/logout}"> <i class='bx bx-log-out'></i> <span
 					class="links_name" data-toggle="modal" data-target="#exampleModal">Salir</span>
@@ -65,9 +65,7 @@
 					th:src="@{/img/logo.png}" />
 			</div>
 
-			<div class="profile-details">
-	 <h6>⠀⠀⠀Administrador</h6>
-			</div>
+			
 		</nav>
 
 		<div class="home-content">
@@ -80,7 +78,7 @@
 				class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
 				<h4 class="text-center" ><br> Registro de productos </h4>
 				<div class="card-body">
-					<form th:action="@{/form}" th:object="${empleado}" method="post">
+					<form th:action="@{/form7}" th:object="${empleado}" method="post">
 						<input type="hidden" th:field="*{id}" th:value="${empleado.id}" />
 						<div class="form-group">
 							<div class="form-group">
@@ -172,3 +170,4 @@ sidebarBtn.onclick = function() {
 
 </body>
 </html>
+

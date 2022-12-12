@@ -15,38 +15,38 @@
 <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'
 	rel='stylesheet'>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css"
-	href="static/css/administrador.css" th:href="@{/css/administrador.css}">
+<link rel="stylesheet" type="text/css" href="static/css/administrador.css"
+	th:href="@{/css/administrador.css}">
 </head>
 <body>
 	<div class="sidebar">
 		<div class="logo-details">
-			<i class='bx bxl-c-plus-plus'></i> <span class="logo_name">Innovatech</span>
+		<i class='bx bx-briefcase-alt'></i><span class="logo_name">Innovatech</span>
 		</div>
-
-
+		
+		
 		<ul class="nav-links">
-			<li><a href="dashboard.html" th:href="@{dashboard}"> <i
-					class='bx bx-home'></i> <span class="links_name">inicio</span>
+		<li><a th:href="@{/Administrador/dashboard}" > <i class='bx bx-home' ></i>
+					<span class="links_name">inicio</span>
 			</a></li>
 			<li><a  href="/form.html"
-	th:href="@{/form}"> <i
-					class='bx bx-grid-alt'></i> <span class="links_name">Agregar
-						produto</span>
+	th:href="@{/form}">  <i class='bx bx-grid-alt'></i>
+					<span class="links_name">Agregar produto</span>
 			</a></li>
-			<li><a href="/listar.html"
-	th:href="@{/listar}"> <i
-					class='bx bx-box'></i> <span class="links_name">Productos</span>
+			<li><a  href="/listar.html"
+	th:href="@{/listar}"> <i class='bx bx-box'></i> <span
+					class="links_name">Productos</span>
 			</a></li>
-			<li><a href="#" class="active"> <i class='bx bx-list-ul'></i>
-					<span class="links_name">lista de ventas</span>
-			</a></li>
-
-			<li><a href="clientes.html" th:href="@{clientes}"> <i
-					class='bx bx-user'></i> <span class="links_name">clientes</span>
+			<li><a 	th:href="@{/domicilios2}" class="active"> <i class='bx bx-list-ul'></i> <span
+					class="links_name">lista de ventas</span>
 			</a></li>
 
-	<li class="log_out"
+			<li><a href="clientes.html"
+	th:href="@{/clientes}" > <i class='bx bx-user'></i> <span
+					class="links_name">clientes</span>
+			</a></li>
+
+		<li class="log_out"
 				th:onclick="return confirm('¿Seguro de que quieres salir?');"><a
 				th:href="@{/logout}"> <i class='bx bx-log-out'></i> <span
 					class="links_name" data-toggle="modal" data-target="#exampleModal">Salir</span>
@@ -64,17 +64,42 @@
 			</div>
 
 			<div class="profile-details">
-				<!--<img src="images/profile.jpg" alt="">-->
-				<span class="admin_name">Prem Shahi</span> <span><a
-					th:href="@{/principal}">prueba </a></span> <i class='bx bx-chevron-down'></i>
+	 <h6>⠀⠀⠀Administrador</h6>
 			</div>
 		</nav>
 
 		<div class="home-content">
 			<div class="overview-boxes">
-				<h2>lista de ventas</h2>
-			</div>
-		</div>
+				 	<table class="table table-striped table-bordered">
+			<thead class="table-dark">
+				<tr>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Direccion</th>
+					<th>Numero</th>
+					
+				
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="domicilio : ${domicilios}">
+					<td th:text="${domicilio.nombre}">Nombre</td>
+					<td th:text="${domicilio.apellido}">Apellido</td>
+					<td th:text="${domicilio.direccion}">Direccion</td>
+					<td th:text="${domicilio.numero}">numero</td>
+				
+					<td>
+			
+			
+					  
+					  
+					</td>
+				</tr>
+				
+			</tbody>
+		</table>
+					</div>
+				</div>
 	</section>
 
 	<script

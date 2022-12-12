@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Editar operador</title>
+<!-- CSS only -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+
+
+
+<br><br><br>
+
+    <br>
+    <div class="container">
+       <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+              <h1 class="text-center">Edición de Operador</h1>
+              <div class="card-body">
+                 <form th:action="@{/operadores/{id}(id=${operador.id})}" th:object="${operador}" method="POST">
+                    <div class="form-group">
+                       <label>Nombre : </label>
+                       <input type="text" name="nombre" th:field="*{nombre}" class="form-control" placeholder="Digite su nombre : " required>
+                    </div>
+                   
+                    <div class="form-group">
+                       <label>Apellido : </label>
+                       <input type="text" name="apellido" th:field="*{apellido}" class="form-control" placeholder="Digite su apellido : " required>
+                    </div>
+                    
+                    <div class="form-group">
+                       <label>Email : </label>
+                       <input type="email" name="email" th:field="*{email}" class="form-control" placeholder="Digite su email : " required>
+                    </div>
+                     <div class="form-group">
+                       <label>Numero : </label>
+                       <input type="number" name="Numero" th:field="*{numero}" class="form-control" placeholder="Digite su numero : " required>
+                    </div>
+                         <div class="form-group">
+                       <label>salario : </label>
+                       <input type="number" name="Salario" th:field="*{salario}" class="form-control" placeholder="Digite su salario : " required>
+                    </div>
+                    
+                    <div class="box-footer">
+                       <button class="btn btn-success">Guardar</button>
+                    </div>
+                 </form>
+              </div>
+          </div>
+       </div>
+    </div>
+</body>
+</html>

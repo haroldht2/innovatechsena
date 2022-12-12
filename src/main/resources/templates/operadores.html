@@ -15,37 +15,36 @@
 <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'
 	rel='stylesheet'>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="static/css/index.css"
-	th:href="@{/css/index.css}">
+<link rel="stylesheet" type="text/css" href="static/css/operador.css"
+	th:href="@{/css/operador.css}">
 </head>
 <body>
 	<div class="sidebar">
 		<div class="logo-details">
-			<i class='bx bx-bar-chart-square'></i> <span class="logo_name">Innovatech</span>
+			<i class='bx bxs-user' ></i> <span class="logo_name">Innovatech</span>
 		</div>
 		<ul class="nav-links">
 		
-			
-			<li><a href="/index.html" th:href="@{/index}" > <i class='bx bx-home' ></i> <span
+<li><a th:href="@{/Operador/dashboard}"  > <i class='bx bx-home' ></i> <span
 					class="links_name">Inicio</span>
 			</a></li>
-			<li><a href="#" class="active"><i class='bx bx-male'></i> <span
-					class="links_name">Caballero</span>
+			
+					<li><a
+	th:href="@{/domicilios3}"> <i class='bx bxs-truck'></i> <span
+					class="links_name">Domicilios</span>
 			</a></li>
-			<li><a href="dama.html" th:href="@{dama}"> <i class='bx bx-female' ></i><span
-					class="links_name">Dama</span>
+			
+			<li><a  
+			 th:href="@{/listar7}"> <i class='bx bxs-cart-alt' ></i> <span
+					class="links_name">Agregar Producto</span>
 			</a></li>
-			<li><a href="niño.html" th:href="@{niño}" > <i class='bx bx-football' ></i><span
-					class="links_name">Niño</span>
-			</a></li>
-			<li><a href="niña.html" th:href="@{niña}" > <i class='bx bxs-star'></i> <span
-					class="links_name">Niña</span>
-			</a></li>
+			
 		
-	
-		<li><a href="compras.html" th:href="@{compras}" > <i class='bx bx-archive' ></i><span
-					class="links_name">Compras</span>
+			<li><a href="#" class="active">
+			<i class='bx bxs-user-plus'></i> <span
+					class="links_name">Asignar Repartidor</span>
 			</a></li>
+			
 			<li class="log_out"><a th:href="@{/logout}"> <i
 					class='bx bx-log-out'></i> <span class="links_name"
 					data-toggle="modal" data-target="#exampleModal">Salir</span>
@@ -63,13 +62,58 @@
 			</div>
 
 			<div class="profile-details">
-			
+				
 			</div>
 		</nav>
 
 		<div class="home-content">
 			<div class="overview-boxes">
-				 	<h2>Contenido caballero</h2>
+			<div class="container">
+		<div class="row">
+	
+		</div>
+		<div class="row">
+		   <div class="col-lg-3">
+		     <a  th:href="@{/operadores/nuevo}" class="btn btn-primary btn-sm mb3">Agregar operador</a>
+		   </div>
+		</div>
+		<br>
+		<table class="table table-striped table-bordered">
+			<thead class="table-dark">
+				<tr>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Email</th>
+					<th>Numero</th>
+					<th>Salario</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="operador : ${operadores}">
+					<td th:text="${operador.nombre}">Nombre</td>
+					<td th:text="${operador.apellido}">Apellido</td>
+					<td th:text="${operador.email}">Email</td>
+					<td th:text="${operador.numero}">numero</td>
+					<td th:text="'$ '+${operador.salario}">salario</td>
+					<td>
+					  <a sec:authorize="hasRole('OPERADOR')" th:href="@{/operadores/editar/{id}(id=${operador.id})}" class="btn btn-info">Editar</a>
+					  <a sec:authorize="hasRole('OPERADOR')" th:onclick="return confirm('¿Estás seguro de eliminar este usuario? esta acción no se puede deshacer.');" th:href="@{/operadores/{id}(id=${operador.id})}" class="btn btn-danger">Eliminar</a>
+					  
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+
+
+
+
+
+
+			
 					</div>
 				</div>
 	</section>

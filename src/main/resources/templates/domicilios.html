@@ -15,44 +15,46 @@
 <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'
 	rel='stylesheet'>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="static/css/operador.css"
-	th:href="@{/css/operador.css}">
+<link rel="stylesheet" type="text/css" href="static/css/index.css"
+	th:href="@{/css/index.css}">
 </head>
 <body>
 	<div class="sidebar">
 		<div class="logo-details">
-			<i class='bx bxs-user' ></i> <span class="logo_name">Innovatech</span>
+			<i class='bx bx-bar-chart-square'></i> <span class="logo_name">Innovatech</span>
 		</div>
 		<ul class="nav-links">
 		
-		<li><a href="#" class="active" > <i class='bx bx-home' ></i> <span
+			
+			<li><a th:href="@{/index}"> <i class='bx bx-home' ></i><span
 					class="links_name">Inicio</span>
 			</a></li>
-			
-			<li><a
-	th:href="@{/domicilios3}"> <i class='bx bxs-truck'></i> <span
-					class="links_name">Domicilios</span>
+			<li><a href="listar2.html" th:href="@{/listar2}"><i class='bx bx-male'></i> <span
+					class="links_name">Caballero</span>
 			</a></li>
-			
-			<li><a  
-			 th:href="@{/listar7}"> <i class='bx bxs-cart-alt' ></i> <span
-					class="links_name">Agregar Producto</span>
+			<li><a  th:href="@{/listar3}"> <i class='bx bx-female' ></i><span
+					class="links_name">Dama</span>
 			</a></li>
-			
+			<li><a th:href="@{/listar4}"> <i class='bx bx-football' ></i><span
+					class="links_name">Niño</span>
+			</a></li>
+			<li><a th:href="@{/listar5}"> <i class='bx bxs-star'></i> <span
+					class="links_name">Niña</span>
+					
+			</a></li>
 		
-			<li><a href="asignarrepartidor.html"
-			 th:href="@{/operadores}"><i class='bx bxs-user-plus'></i> <span
-					class="links_name">Asignar Repartidor</span>
+	
+			<li><a href="#"  class="active"> <i class='bx bx-archive' ></i><span
+					class="links_name">Compras</span>
 			</a></li>
-			
-			<li class="log_out"
+		<li class="log_out"
 				th:onclick="return confirm('¿Seguro de que quieres salir?');"><a
 				th:href="@{/logout}"> <i class='bx bx-log-out'></i> <span
 					class="links_name" data-toggle="modal" data-target="#exampleModal">Salir</span>
 
 
 
-			</a></li>
+			</a></li>	
 		</ul>
 	</div>
 	<section class="home-section">
@@ -63,45 +65,51 @@
 			</div>
 
 			<div class="profile-details">
-				
+			
 			</div>
 		</nav>
 
 		<div class="home-content">
 			<div class="overview-boxes">
-				 <div class="home-content">
-			<div class="overview-boxes">
-				 	<div class="col-md-9">
-				<div class="row">
-					<div class="col">
-						
-						
-						<div class="row">
-							<div class="col">
+				 		<div class="container">
+		<div class="row">
+	
+		</div>
+		<div class="row">
 
-								<div class="jumbotron">
-									<h1 class="display-4">Bienvenido señor operario</h1>
-									<p class="lead">Dime que quieres hacer en el dia de hoy </p>
-									<hr class="my-4"/>
-									<p></p>
-                         <div class="car-body col-12">
-								<img  style="width:100%; height:100%"
-									src="static/img/feliz.png" class="img-fluid"
-									th:src="@{/img/feliz.png}" />
-							</div>
-								</div>
-
-							</div>
-
-						</div>
-
-					</div>
-					</div>
-				</div>
-
-				 	
-					</div>
-				</div>
+		</div>
+		<br>
+		<table class="table table-striped table-bordered">
+			<thead class="table-dark">
+				<tr>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Direccion</th>
+					<th>Numero</th>
+					<th>Ver</th>
+				
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="domicilio : ${domicilios}">
+					<td th:text="${domicilio.nombre}">Nombre</td>
+					<td th:text="${domicilio.apellido}">Apellido</td>
+					<td th:text="${domicilio.direccion}">Direccion</td>
+					<td th:text="${domicilio.numero}">numero</td>
+				
+					<td>
+					<a class="btn btn-info btn-sm"
+											th:href="@{/ver6/1}"><i class='bx bx-caret-up-circle'></i></a>
+			
+					  <a sec:authorize="hasRole('ADMIN')" th:href="@{/domicilios/{id}(id=${domicilio.id})}" class="btn btn-danger">Eliminar</a>
+					  
+					  
+					</td>
+				</tr>
+				
+			</tbody>
+		</table>
+	</div>
 					</div>
 				</div>
 	</section>

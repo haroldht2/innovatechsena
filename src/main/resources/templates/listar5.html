@@ -15,39 +15,38 @@
 <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'
 	rel='stylesheet'>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css"
-	href="static/css/administrador.css" th:href="@{/css/administrador.css}">
+<link rel="stylesheet" type="text/css" href="static/css/index.css"
+	th:href="@{/css/index.css}">
 </head>
 <body>
 	<div class="sidebar">
 		<div class="logo-details">
-			<i class='bx bx-briefcase-alt'></i> <span class="logo_name">Innovatech</span>
+			<i class='bx bx-bar-chart-square'></i> <span class="logo_name">Innovatech</span>
 		</div>
-
-
 		<ul class="nav-links">
-			<li><a href="Administrador/dashboard.html"
-				th:href="@{Administrador/dashboard}"> <i class='bx bx-home'></i>
-					<span class="links_name">inicio</span>
+		
+			
+			<li><a href="index.html" th:href="@{/index}"> <i class='bx bx-home' ></i><span
+					class="links_name">Inicio</span>
 			</a></li>
-			<li><a href="form.html" th:href="@{form}" >
-					<i class='bx bx-grid-alt'></i> <span class="links_name">Agregar
-						produto</span>
+			<li><a th:href="@{/listar2}"  ><i class='bx bx-male'></i> <span
+					class="links_name">Caballero</span>
 			</a></li>
-			<li><a href="/listar.html"
-	th:href="@{/listar}" class="active">
-					<i class='bx bx-box'></i> <span class="links_name">Productos</span>
+			<li><a  th:href="@{/listar3}"> <i class='bx bx-female' ></i><span
+					class="links_name">Dama</span>
 			</a></li>
-			<li><a th:href="@{/domicilios2}"> <i
-					class='bx bx-list-ul'></i> <span class="links_name">lista de
-						ventas</span>
+			<li><a th:href="@{/listar4}" > <i class='bx bx-football' ></i><span
+					class="links_name">Niño</span>
 			</a></li>
-
-			<li><a href="clientes.html" th:href="@{/clientes}"> <i
-					class='bx bx-user'></i> <span class="links_name">clientes</span>
+			<li><a th:href="@{/listar5}" class="active" > <i class='bx bxs-star'></i> <span
+					class="links_name">Niña</span>
 			</a></li>
-
-			<li class="log_out"
+		
+	
+			<li><a th:href="@{/domicilios}"> <i class='bx bx-archive' ></i><span
+					class="links_name">Compras</span>
+			</a></li>
+		<li class="log_out"
 				th:onclick="return confirm('¿Seguro de que quieres salir?');"><a
 				th:href="@{/logout}"> <i class='bx bx-log-out'></i> <span
 					class="links_name" data-toggle="modal" data-target="#exampleModal">Salir</span>
@@ -64,16 +63,31 @@
 					th:src="@{/img/logo.png}" />
 			</div>
 
+			<div class="profile-details">
 			
+			</div>
 		</nav>
+
 
 		<div class="home-content">
 			<div class="overview-boxes">
-		
-				 	<table class="table table-striped table-bordered mt-3">
-				 	
-			<thead class="table-dark">
-				<tr>
+				<div class="py-4 ml-5 mr-5">
+					<div class="card bg-light">
+						<div class="card-body">
+							<h5>Productos para niña</h5>
+							<br>
+							<h4 class="card-title">
+
+								<a 
+									th:href="@{/exportarPDF}" sec:authorize="hasRole('ADMIN')" class="btn btn-secondary">Exportar
+									a PDF</a> <a sec:authorize="hasRole('ADMIN')"
+									th:href="@{/exportarExcel}" class="btn btn-success">Exportar
+									a Excel</a>
+
+							</h4>
+							<table class="table table-striped">
+								<thead>
+									<tr>
 										<th>ID</th>
 										<th>Proveedor</th>
 										<th>Nombre</th>
@@ -100,10 +114,10 @@
 										<td th:text="${empleado.sexo}"></td>
 										<td th:text="${empleado.salario}"></td>
 										<td><a class="btn btn-info btn-sm"
-											th:href="@{/ver/} + ${empleado.id}">Detalles</a></td>
+											th:href="@{/ver5/} + ${empleado.id}">Detalles</a></td>
 										<td sec:authorize="hasRole('ADMIN')"><a
 											class="btn btn-warning btn-sm"
-											th:href="@{/form/} + ${empleado.id}">Editar</a></td>
+											th:href="@{/form2/} + ${empleado.id}">Editar</a></td>
 										<td sec:authorize="hasRole('ADMIN')"><a
 											class="btn btn-danger btn-sm"
 											th:href="@{/eliminar/} + ${empleado.id}"

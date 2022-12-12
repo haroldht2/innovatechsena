@@ -58,10 +58,7 @@ public class EstilosControl {
 	public String agregarproducto() {
 		return "Operador/agregarproducto";
 	}
-	@GetMapping("/Operador/informe")
-	public String informe() {
-		return "Operador/informe";
-	}
+	
 	@GetMapping("/Operador/asignarrepartidor")
 	public String asignarrepartidor() {
 		return "Operador/asignarrepartidor";
@@ -96,9 +93,24 @@ public class EstilosControl {
 	public String logo() {
 		return "static/img/logo";
 	}
+	
+	@GetMapping ("/ver2")
+	public String ver2() {
+		return "ver2";
+	}
 
+	@GetMapping("@{/domicilios3/nuevo}")
+	public String nuevoDomicilio() {
+		return "crear_domicilio3";
+	}
 	
 
+	
+	@GetMapping ("@{/eliminar7/{id}}")
+	public String Lista7() {
+		return "listar7";
+	}
+	
 	
 	
 	

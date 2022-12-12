@@ -8,7 +8,9 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-
+.jean{
+	width: 260px;
+}
 .sidebar{
   position: fixed;
   height: 100%;
